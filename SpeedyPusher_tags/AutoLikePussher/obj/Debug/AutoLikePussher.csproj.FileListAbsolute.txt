@@ -1,0 +1,13 @@
+C:\Users\_\Documents\GitHub\AutoLikePussher\AutoLikePussher\AutoLikePussher\bin\Debug\AutoLikePussher.exe.config
+C:\Users\_\Documents\GitHub\AutoLikePussher\AutoLikePussher\AutoLikePussher\bin\Debug\AutoLikePussher.exe
+C:\Users\_\Documents\GitHub\AutoLikePussher\AutoLikePussher\AutoLikePussher\bin\Debug\AutoLikePussher.pdb
+C:\Users\_\Documents\GitHub\AutoLikePussher\AutoLikePussher\AutoLikePussher\obj\Debug\AutoLikePussher.csprojResolveAssemblyReference.cache
+C:\Users\_\Documents\GitHub\AutoLikePussher\AutoLikePussher\AutoLikePussher\obj\Debug\AutoLikePussher.frmMain.resources
+C:\Users\_\Documents\GitHub\AutoLikePussher\AutoLikePussher\AutoLikePussher\obj\Debug\AutoLikePussher.Properties.Resources.resources
+C:\Users\_\Documents\GitHub\AutoLikePussher\AutoLikePussher\AutoLikePussher\obj\Debug\AutoLikePussher.csproj.GenerateResource.Cache
+C:\Users\_\Documents\GitHub\AutoLikePussher\AutoLikePussher\AutoLikePussher\obj\Debug\AutoLikePussher.exe
+C:\Users\_\Documents\GitHub\AutoLikePussher\AutoLikePussher\AutoLikePussher\obj\Debug\AutoLikePussher.pdb
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\AutoLikePussher\AutoLikePussher\bin\Debug\AutoLikePussher.exe.config
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\AutoLikePussher\AutoLikePussher\obj\Debug\AutoLikePussher.exe
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\AutoLikePussher\AutoLikePussher\obj\Debug\AutoLikePussher.pdb
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\AutoLikePussher\AutoLikePussher\bin\Debug\SpeedyLikePusher_forTag.exe.config
