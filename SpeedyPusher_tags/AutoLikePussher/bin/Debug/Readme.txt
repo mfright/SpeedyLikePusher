@@ -18,3 +18,5 @@ access to photos thumbnail page about a hash-tag and press the right button.
 
 
 3.Develop
+Source code is stored on Github.(https://github.com/mfright/SpeedyLikePusher)
+Developer: https://instagram.com/m_fright5
