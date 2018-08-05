@@ -34,23 +34,23 @@
             this.timerHashTag = new System.Windows.Forms.Timer(this.components);
             this.timerTimeline = new System.Windows.Forms.Timer(this.components);
             this.btnStartTimeline = new System.Windows.Forms.Button();
+            this.btnReload = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // myBrowser
             // 
-            this.myBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myBrowser.Location = new System.Drawing.Point(0, 0);
+            this.myBrowser.Location = new System.Drawing.Point(0, 54);
             this.myBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.myBrowser.Name = "myBrowser";
-            this.myBrowser.Size = new System.Drawing.Size(785, 658);
+            this.myBrowser.Size = new System.Drawing.Size(785, 604);
             this.myBrowser.TabIndex = 0;
             this.myBrowser.Url = new System.Uri("https://instagram.com", System.UriKind.Absolute);
             // 
             // btn_startTag
             // 
-            this.btn_startTag.Location = new System.Drawing.Point(375, 0);
+            this.btn_startTag.Location = new System.Drawing.Point(458, 0);
             this.btn_startTag.Name = "btn_startTag";
-            this.btn_startTag.Size = new System.Drawing.Size(278, 55);
+            this.btn_startTag.Size = new System.Drawing.Size(327, 55);
             this.btn_startTag.TabIndex = 1;
             this.btn_startTag.Text = "Open photos page about a hash-tag.\r\nThen press here to START.";
             this.btn_startTag.UseVisualStyleBackColor = true;
@@ -58,7 +58,7 @@
             // 
             // timerHashTag
             // 
-            this.timerHashTag.Interval = 1000;
+            this.timerHashTag.Interval = 2000;
             this.timerHashTag.Tick += new System.EventHandler(this.timerTag_Tick);
             // 
             // timerTimeline
@@ -68,19 +68,30 @@
             // 
             // btnStartTimeline
             // 
-            this.btnStartTimeline.Location = new System.Drawing.Point(108, 0);
+            this.btnStartTimeline.Location = new System.Drawing.Point(0, 0);
             this.btnStartTimeline.Name = "btnStartTimeline";
-            this.btnStartTimeline.Size = new System.Drawing.Size(270, 55);
+            this.btnStartTimeline.Size = new System.Drawing.Size(356, 55);
             this.btnStartTimeline.TabIndex = 2;
             this.btnStartTimeline.Text = "Open main timeline page.\r\nThen press here to START.";
             this.btnStartTimeline.UseVisualStyleBackColor = true;
             this.btnStartTimeline.Click += new System.EventHandler(this.btnStartTimeline_Click);
+            // 
+            // btnReload
+            // 
+            this.btnReload.Location = new System.Drawing.Point(362, 0);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(90, 55);
+            this.btnReload.TabIndex = 3;
+            this.btnReload.Text = "Reload page.";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 658);
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnStartTimeline);
             this.Controls.Add(this.btn_startTag);
             this.Controls.Add(this.myBrowser);
@@ -88,7 +99,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
-            this.Text = "SpeedyLikePusher";
+            this.Text = "SpeedyLikeSender";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
@@ -102,6 +113,7 @@
         private System.Windows.Forms.Timer timerHashTag;
         private System.Windows.Forms.Timer timerTimeline;
         private System.Windows.Forms.Button btnStartTimeline;
+        private System.Windows.Forms.Button btnReload;
     }
 }
 

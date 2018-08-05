@@ -1,8 +1,9 @@
-C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\bin\Debug\SpeedyLikePusher.exe.config
-C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\bin\Debug\SpeedyLikePusher.exe
-C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\bin\Debug\SpeedyLikePusher.pdb
 C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\obj\Debug\AutoLikePussher.frmMain.resources
-C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikePusher.Properties.Resources.resources
 C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikePusher.csproj.GenerateResource.Cache
-C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikePusher.exe
-C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikePusher.pdb
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikePusher.csprojResolveAssemblyReference.cache
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\bin\Debug\SpeedyLikeSender.exe.config
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\bin\Debug\SpeedyLikeSender.exe
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\bin\Debug\SpeedyLikeSender.pdb
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikeSender.Properties.Resources.resources
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikeSender.exe
+C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikeSender.pdb

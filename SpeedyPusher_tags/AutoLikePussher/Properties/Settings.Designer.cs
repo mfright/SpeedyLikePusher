@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SpeedyLikePusher.Properties {
+namespace SpeedyLikeSender.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

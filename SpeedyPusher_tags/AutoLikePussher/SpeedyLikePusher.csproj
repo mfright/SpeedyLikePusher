@@ -7,8 +7,8 @@
     <ProjectGuid>{E10B08DE-A593-49BB-9BE4-D3ABC0BD3A10}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpeedyLikePusher</RootNamespace>
-    <AssemblyName>SpeedyLikePusher</AssemblyName>
+    <RootNamespace>SpeedyLikeSender</RootNamespace>
+    <AssemblyName>SpeedyLikeSender</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

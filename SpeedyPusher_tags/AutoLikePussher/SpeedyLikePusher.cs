@@ -38,8 +38,11 @@ namespace AutoLikePussher
         // マウスカーソル座標
         System.Drawing.Point mp;
 
-        // webBrowserスクロール会栖
-        int i = 0;
+        // webBrowserスクロール回数
+        int countScroll = 0;
+
+        // ダブルクリック回数
+        int countDoubleClick = 0;
 
         // 実行中フラグ
         Boolean running_tag = false;
@@ -56,7 +59,7 @@ namespace AutoLikePussher
         {
             //画像の上にカーソルを動かしダブルクリック
             mp = this.PointToScreen(
-                    new System.Drawing.Point(100,400));
+                    new System.Drawing.Point(100,450));
             System.Windows.Forms.Cursor.Position = mp;
             System.Threading.Thread.Sleep(10);
 
@@ -66,21 +69,21 @@ namespace AutoLikePussher
             
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-            System.Threading.Thread.Sleep(10);
+            System.Threading.Thread.Sleep(100);
+
+            countDoubleClick++;
+            System.Console.WriteLine(countDoubleClick);
 
 
             //次画像ボタンの上にカーソルを動かしダブルクリック
             mp = this.PointToScreen(
                     new System.Drawing.Point(740, 340));
             System.Windows.Forms.Cursor.Position = mp;
-            System.Threading.Thread.Sleep(10);
 
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
             System.Threading.Thread.Sleep(10);
 
-            //myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, i*500));
-            //i++;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -98,16 +101,20 @@ namespace AutoLikePussher
         {
             if (running_tag)
             {
-                running_tag = false;
-                timerHashTag.Stop();
-                btn_startTag.Text = "START";               
+                stop();             
             
             }
             else
             {
+                this.Text = "RUNNING...  Press ESC key to STOP";
+                btn_startTag.BackColor = Color.Yellow;
+                this.TopMost = true;
                 running_tag = true;
                 btn_startTag.Text = "Press ESC key to STOP.";
 
+                // 頭へスクロール
+                myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, countScroll * 400));
+                
                 timerHashTag.Start();
             } 
             
@@ -118,26 +125,37 @@ namespace AutoLikePussher
         {
             if (Keyboard.IsKeyDown(Key.Escape) == true)
             {
-                running_tag = false;
-                running_timeline = false;
-                timerHashTag.Stop();
-                timerTimeline.Stop();
-                btn_startTag.Text = "Open photos page about a hash-tag. \r\nThen press here to START.";
-                btnStartTimeline.Text = "Open time-line page.\r\nThen press here to START.";
+                stop();
             }
+        }
+
+        private void stop()
+        {
+            this.Text = "Stopped. -- ";
+            btn_startTag.BackColor = Color.LightGray;
+            btnStartTimeline.BackColor = Color.LightGray;
+            this.TopMost = false;
+            countScroll = 0;
+            running_tag = false;
+            running_timeline = false;
+            timerHashTag.Stop();
+            timerTimeline.Stop();
+            btn_startTag.Text = "Open photos page about a hash-tag. \r\nThen press here to START.";
+            btnStartTimeline.Text = "Open time-line page.\r\nThen press here to START.";
         }
 
         private void btnStartTimeline_Click(object sender, EventArgs e)
         {
             if (running_timeline)
             {
-                running_timeline = false;
-                timerTimeline.Stop();
-                btnStartTimeline.Text = "START";
+                stop();
 
             }
             else
             {
+                this.Text = "RUNNING...  Press ESC key to STOP";   
+                btnStartTimeline.BackColor = Color.Yellow;
+                this.TopMost = true;
                 running_timeline = true;
                 btnStartTimeline.Text = "Press ESC key to STOP.";
 
@@ -159,10 +177,12 @@ namespace AutoLikePussher
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
             System.Threading.Thread.Sleep(10);
+            countDoubleClick++;
+            System.Console.WriteLine(countDoubleClick);
 
             // 下へスクロール
-            myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, i * 400));
-            i++;
+            myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, countScroll * 400));
+            countScroll++;
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -171,6 +191,11 @@ namespace AutoLikePussher
             regkey.DeleteValue(process_name);
             regkey.DeleteValue(process_dbg_name);
             regkey.Close();
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            myBrowser.Refresh();
         }
     }
 }
