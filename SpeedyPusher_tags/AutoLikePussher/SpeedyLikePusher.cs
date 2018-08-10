@@ -44,6 +44,12 @@ namespace AutoLikePussher
         // ダブルクリック回数
         int countDoubleClick = 0;
 
+        // タイムラインはダブルクリック２回で１回とみなすため
+        Boolean point5 = false;
+
+        //既にクリックしすぎ警告画面を表示したか
+        //Boolean stillAlerted = false;
+
         // 実行中フラグ
         Boolean running_tag = false;
         Boolean running_timeline = false;
@@ -59,9 +65,8 @@ namespace AutoLikePussher
         {
             //画像の上にカーソルを動かしダブルクリック
             mp = this.PointToScreen(
-                    new System.Drawing.Point(100,450));
+                    new System.Drawing.Point(50,430));
             System.Windows.Forms.Cursor.Position = mp;
-            System.Threading.Thread.Sleep(10);
 
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
@@ -69,21 +74,52 @@ namespace AutoLikePussher
             
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(10);
 
-            countDoubleClick++;
-            System.Console.WriteLine(countDoubleClick);
+            
 
-
-            //次画像ボタンの上にカーソルを動かしダブルクリック
+            //次画像ボタンの上にカーソルを動かしクリック
             mp = this.PointToScreen(
-                    new System.Drawing.Point(740, 340));
+                    new System.Drawing.Point(750, 350));
             System.Windows.Forms.Cursor.Position = mp;
 
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-            System.Threading.Thread.Sleep(10);
 
+
+            //カウンターを増加
+            countIncrement(false);
+            
+        }
+
+        private void countIncrement(Boolean needPoint5){
+            if (needPoint5)
+            {//タイムラインの時は、２回に１回インクリメントする。
+                if (point5)
+                {
+                    countDoubleClick++;
+                    point5 = false;
+                    lblCounter.Text = countDoubleClick.ToString();
+                }
+                else
+                {
+                    point5 = true;
+                }
+            }
+            else
+            {   //タグ一覧の時は、１回に１回インクリメントする。
+                countDoubleClick++;
+                lblCounter.Text = countDoubleClick + "";
+            }
+
+
+            if (countDoubleClick == 800)
+            {
+                stop();
+                countDoubleClick++; //タイムラインだと２回警告を出してしまうのを防ぐため1+
+                MessageBox.Show("You still sent LIKEs about 800　with using this tool.\r\nYour account will be locked by Instagram if you continue to sending today.","Attention!");
+                
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -120,10 +156,10 @@ namespace AutoLikePussher
             
         }
 
-        
+        //キーが押された時の動作
         private void Application_Idle(object sender, EventArgs e)
         {
-            if (Keyboard.IsKeyDown(Key.Escape) == true)
+            if (Keyboard.IsKeyDown(Key.Escape) == true ||  Keyboard.IsKeyDown(Key.Pause) == true )
             {
                 stop();
             }
@@ -131,7 +167,7 @@ namespace AutoLikePussher
 
         private void stop()
         {
-            this.Text = "Stopped. -- ";
+            this.Text = "Stopped. -- Speedy LIKE sender.";
             btn_startTag.BackColor = Color.LightGray;
             btnStartTimeline.BackColor = Color.LightGray;
             this.TopMost = false;
@@ -155,7 +191,7 @@ namespace AutoLikePussher
             {
                 this.Text = "RUNNING...  Press ESC key to STOP";   
                 btnStartTimeline.BackColor = Color.Yellow;
-                this.TopMost = true;
+                //this.TopMost = true; //ブラウザを頭へスクロールするのは不要にする
                 running_timeline = true;
                 btnStartTimeline.Text = "Press ESC key to STOP.";
 
@@ -177,12 +213,15 @@ namespace AutoLikePussher
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
             System.Threading.Thread.Sleep(10);
-            countDoubleClick++;
-            System.Console.WriteLine(countDoubleClick);
+            
 
             // 下へスクロール
             myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, countScroll * 400));
             countScroll++;
+
+            
+            // カウンター表示
+            countIncrement(true);
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)

@@ -35,6 +35,7 @@
             this.timerTimeline = new System.Windows.Forms.Timer(this.components);
             this.btnStartTimeline = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
+            this.lblCounter = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // myBrowser
@@ -48,9 +49,9 @@
             // 
             // btn_startTag
             // 
-            this.btn_startTag.Location = new System.Drawing.Point(458, 0);
+            this.btn_startTag.Location = new System.Drawing.Point(445, 0);
             this.btn_startTag.Name = "btn_startTag";
-            this.btn_startTag.Size = new System.Drawing.Size(327, 55);
+            this.btn_startTag.Size = new System.Drawing.Size(340, 55);
             this.btn_startTag.TabIndex = 1;
             this.btn_startTag.Text = "Open photos page about a hash-tag.\r\nThen press here to START.";
             this.btn_startTag.UseVisualStyleBackColor = true;
@@ -70,7 +71,7 @@
             // 
             this.btnStartTimeline.Location = new System.Drawing.Point(0, 0);
             this.btnStartTimeline.Name = "btnStartTimeline";
-            this.btnStartTimeline.Size = new System.Drawing.Size(356, 55);
+            this.btnStartTimeline.Size = new System.Drawing.Size(367, 55);
             this.btnStartTimeline.TabIndex = 2;
             this.btnStartTimeline.Text = "Open main timeline page.\r\nThen press here to START.";
             this.btnStartTimeline.UseVisualStyleBackColor = true;
@@ -78,19 +79,29 @@
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(362, 0);
+            this.btnReload.Location = new System.Drawing.Point(373, 28);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(90, 55);
+            this.btnReload.Size = new System.Drawing.Size(66, 27);
             this.btnReload.TabIndex = 3;
-            this.btnReload.Text = "Reload page.";
+            this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // lblCounter
+            // 
+            this.lblCounter.AutoSize = true;
+            this.lblCounter.Location = new System.Drawing.Point(373, 7);
+            this.lblCounter.Name = "lblCounter";
+            this.lblCounter.Size = new System.Drawing.Size(11, 12);
+            this.lblCounter.TabIndex = 4;
+            this.lblCounter.Text = "0";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 658);
+            this.Controls.Add(this.lblCounter);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnStartTimeline);
             this.Controls.Add(this.btn_startTag);
@@ -103,6 +114,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -114,6 +126,7 @@
         private System.Windows.Forms.Timer timerTimeline;
         private System.Windows.Forms.Button btnStartTimeline;
         private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.Label lblCounter;
     }
 }
 
