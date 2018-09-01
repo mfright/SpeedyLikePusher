@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Windows Desktop
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedyLikePusher", "AutoLikePussher\SpeedyLikePusher.csproj", "{E10B08DE-A593-49BB-9BE4-D3ABC0BD3A10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedyLikeSender", "AutoLikePussher\SpeedyLikeSender.csproj", "{E10B08DE-A593-49BB-9BE4-D3ABC0BD3A10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

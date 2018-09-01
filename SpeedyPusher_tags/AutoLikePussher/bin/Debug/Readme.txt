@@ -19,7 +19,7 @@ B. Photos thumbnail page of a hash-tag.
 
 ■2.How to use.
 
-Install ".net Framework"4 or later to your Windows PC.
+Install ".net Framework"4 or later and IE11 to your Windows PC.
 Run "SpeedyLikeSender.exe".
 Then log-in to your Instagram account.
 Access to your main-timeline page and press the left button or
@@ -27,8 +27,8 @@ access to a thumbnails page about a hash-tag and press the right button.
 
 See https://www.youtube.com/watch?v=H1UNhahx-Ew&feature=youtu.be .
 
-パソコンに「.net Framework」をインストールします。
-「SpeedyLikeSender.exe」を起動し、あなたのアカウントでログインします。
+パソコンに「.net Framework」とIE11をインストールします。
+「SpeedyLikeSender.exe」を起動し、あなたのインスタアカウントでログインします。
 タイムラインに一斉に「いいね」を付けたい場合は、タイムラインを表示させた状態で、左上のボタンを押します。
 止めたいときはESCキー(エスケープキー)を押してください。
 

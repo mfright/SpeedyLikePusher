@@ -1,4 +1,4 @@
-﻿namespace AutoLikePussher
+﻿namespace SpeedyLikeSender
 {
     partial class frmMain
     {
@@ -36,6 +36,7 @@
             this.btnStartTimeline = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.lblCounter = new System.Windows.Forms.Label();
+            this.btnSetting = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // myBrowser
@@ -96,11 +97,23 @@
             this.lblCounter.TabIndex = 4;
             this.lblCounter.Text = "0";
             // 
+            // btnSetting
+            // 
+            this.btnSetting.Location = new System.Drawing.Point(0, 635);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(25, 23);
+            this.btnSetting.TabIndex = 5;
+            this.btnSetting.Text = "*";
+            this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Visible = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 658);
+            this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.lblCounter);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnStartTimeline);
@@ -127,6 +140,7 @@
         private System.Windows.Forms.Button btnStartTimeline;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Label lblCounter;
+        private System.Windows.Forms.Button btnSetting;
     }
 }
 

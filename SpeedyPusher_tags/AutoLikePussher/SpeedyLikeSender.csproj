@@ -46,6 +46,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="counterSetter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="counterSetter.Designer.cs">
+      <DependentUpon>counterSetter.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpeedyLikePusher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="counterSetter.resx">
+      <DependentUpon>counterSetter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SpeedyLikePusher.resx">
       <DependentUpon>SpeedyLikePusher.cs</DependentUpon>
     </EmbeddedResource>

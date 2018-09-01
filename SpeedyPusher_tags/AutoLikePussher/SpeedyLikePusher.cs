@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
-namespace AutoLikePussher
+namespace SpeedyLikeSender
 {
 
 
@@ -47,8 +47,8 @@ namespace AutoLikePussher
         // タイムラインはダブルクリック２回で１回とみなすため
         Boolean point5 = false;
 
-        //既にクリックしすぎ警告画面を表示したか
-        //Boolean stillAlerted = false;
+        //カウントリミット
+        public int limitter = 1000;
 
         // 実行中フラグ
         Boolean running_tag = false;
@@ -59,6 +59,45 @@ namespace AutoLikePussher
         public frmMain()
         {
             InitializeComponent();
+
+            loadLimit();
+        }
+
+        /// <summary>
+        /// 設定ファイルを読み込む
+        /// </summary>
+        private void loadLimit()
+        {
+            StreamReader sr1;   
+            try
+            {
+                sr1 = new StreamReader("limitter.ini", System.Text.Encoding.GetEncoding("shift_jis"));
+
+                string message = sr1.ReadLine();
+                limitter = int.Parse(message);
+
+                sr1.Close();
+            }
+            catch (Exception e)
+            {
+                
+
+                // 読み込みに失敗したら　設定ファイルを作成
+                try{
+                    StreamWriter sw1 = new StreamWriter("limitter.ini", false, System.Text.Encoding.GetEncoding("shift_jis"));
+                    sw1.WriteLine("1000");
+                    sw1.Close();
+
+                }catch(Exception ex){
+                    MessageBox.Show("File saving error.");
+
+                }
+            }
+            finally
+            {
+                
+            }
+            
         }
 
         private void timerTag_Tick(object sender, EventArgs e)
@@ -92,8 +131,8 @@ namespace AutoLikePussher
             
         }
 
-        private void countIncrement(Boolean needPoint5){
-            if (needPoint5)
+        private void countIncrement(Boolean half){
+            if (half)
             {//タイムラインの時は、２回に１回インクリメントする。
                 if (point5)
                 {
@@ -113,11 +152,11 @@ namespace AutoLikePussher
             }
 
 
-            if (countDoubleClick == 800)
+            if (countDoubleClick == limitter)
             {
                 stop();
                 countDoubleClick++; //タイムラインだと２回警告を出してしまうのを防ぐため1+
-                MessageBox.Show("You still sent LIKEs about 800　with using this tool.\r\nYour account will be locked by Instagram if you continue to sending today.","Attention!");
+                MessageBox.Show("Maybe still sent LIKEs about near limit with using this tool.\r\nYour account will be locked by Instagram if you continue to sending today.","Attention!");
                 
             }
         }
@@ -149,7 +188,7 @@ namespace AutoLikePussher
                 btn_startTag.Text = "Press ESC key to STOP.";
 
                 // 頭へスクロール
-                myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, countScroll * 400));
+                //myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, countScroll * 400));
                 
                 timerHashTag.Start();
             } 
@@ -191,7 +230,7 @@ namespace AutoLikePussher
             {
                 this.Text = "RUNNING...  Press ESC key to STOP";   
                 btnStartTimeline.BackColor = Color.Yellow;
-                //this.TopMost = true; //ブラウザを頭へスクロールするのは不要にする
+                this.TopMost = true; 
                 running_timeline = true;
                 btnStartTimeline.Text = "Press ESC key to STOP.";
 
@@ -235,6 +274,13 @@ namespace AutoLikePussher
         private void btnReload_Click(object sender, EventArgs e)
         {
             myBrowser.Refresh();
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            counterSetter myCounterSetter = new counterSetter();
+            myCounterSetter.myFM = this;
+            myCounterSetter.ShowDialog(this);
         }
     }
 }
