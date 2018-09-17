@@ -61,6 +61,12 @@ interval.iniを書き換えてからツールを起動しなおしてください。
 
 
 ■4.Other tools
+For Twitter, SpeedyFavoriter is released on the URL below.
+https://github.com/mfright/SpeedyFavoriter/releases
+Twitter用には、SpeedyFavoriterを提供しています。
+上記URLで公開しています。
+
+
 There is an accout that is for supporting to increase your followers.
 Accounts following the account below is following each other.
 https://www.instagram.com/follow_each_other2018/
