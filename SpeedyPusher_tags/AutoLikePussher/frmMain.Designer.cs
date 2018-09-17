@@ -37,6 +37,7 @@
             this.btnReload = new System.Windows.Forms.Button();
             this.lblCounter = new System.Windows.Forms.Label();
             this.btnSetting = new System.Windows.Forms.Button();
+            this.tmAutomation = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // myBrowser
@@ -60,7 +61,7 @@
             // 
             // timerHashTag
             // 
-            this.timerHashTag.Interval = 2000;
+            this.timerHashTag.Interval = 3000;
             this.timerHashTag.Tick += new System.EventHandler(this.timerTag_Tick);
             // 
             // timerTimeline
@@ -108,6 +109,11 @@
             this.btnSetting.Visible = false;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
+            // tmAutomation
+            // 
+            this.tmAutomation.Interval = 5000;
+            this.tmAutomation.Tick += new System.EventHandler(this.tmAutomation_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -141,6 +147,7 @@
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Label lblCounter;
         private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Timer tmAutomation;
     }
 }
 

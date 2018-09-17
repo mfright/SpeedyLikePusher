@@ -4,6 +4,7 @@
 //-------------------------------------------------//
 
 
+
 ■1.ABSTRACT
 
 Are you tired to send "LIKE"s on your timeline / hash-tagged photos in Instagram?
@@ -36,9 +37,40 @@ See https://www.youtube.com/watch?v=H1UNhahx-Ew&feature=youtu.be .
 詳しくは上のYoutube動画をご覧ください。
 
 
-■3.Develop
+
+■3.Settings
+"limitter.ini" -> Number of auto-stop limitter.
+"interval.ini" -> Interval-time of changing to the next photo.
+
+１日のうちで「いいね」しすぎるとInstagramからブロックされ、しばらく「いいね」できなくなります。
+(およそ1000回/1日ではないかと言われていますが、定かではありません)
+そこで、デフォルトでは1000回クリックしたらダイアログが表示され、いいね送信が自動停止します。
+この自動停止の回数はデフォルトで1000としていますが、
+変更したい場合は、limitter.iniをテキストエディタで開き、
+数値を書き換えてからツールを起動しなおしてください。
+
+ハッシュタグ画像に「いいね」していくモードでは、デフォルトでは2500ミリ秒(=2.5秒)ごとに画像を切り替えています。
+通信速度によってはもっと遅くしたほうが安定して動作したり、
+逆に早く動作させられることもあるので、
+このインターバルを変更したい場合は、
+interval.iniを書き換えてからツールを起動しなおしてください。
+
+また、本ツールを起動時に「SpeedySender.exe -a」のように「-a」オプションを付けることで、
+あなたの最直近の投稿に含まれるハッシュタグ群に「いいね」試行させることができます。
+
+
+
+■4.Other tools
+There is an accout that is for supporting to increase your followers.
+Accounts following the account below is following each other.
+https://www.instagram.com/follow_each_other2018/
+
+相互フォロー支援アカウントも提供しています。
+上記アカウントも活用してみてください。
+
+
+
+■5.Develop
 
 Source code is stored on Github.(https://github.com/mfright/SpeedyLikePusher)
-Developer: https://instagram.com/m_fright5
-
 ぜひ上記URLにアクセスしてください。

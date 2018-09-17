@@ -56,15 +56,24 @@ namespace SpeedyLikeSender
 
         
 
-        public frmMain()
+        public frmMain(bool automationMode)
         {
             InitializeComponent();
 
+            //送信回数制限ファイルを読み込み
             loadLimit();
+
+            //ハッシュタグいいね送信インターバル設定ファイル読込
+            loadInterval();
+
+            if (automationMode)
+            {
+                tmAutomation.Start();
+            }
         }
 
         /// <summary>
-        /// 設定ファイルを読み込む
+        /// 送信回数制限の設定ファイルを読み込む
         /// </summary>
         private void loadLimit()
         {
@@ -89,15 +98,47 @@ namespace SpeedyLikeSender
                     sw1.Close();
 
                 }catch(Exception ex){
-                    MessageBox.Show("File saving error.");
+                    MessageBox.Show("File saving error. limitter.ini");
 
                 }
             }
-            finally
-            {
-                
-            }
             
+        }
+
+        /// <summary>
+        /// インターバル設定ファイルを読み込む
+        /// </summary>
+        private void loadInterval()
+        {
+            StreamReader sr1;
+            try
+            {
+                sr1 = new StreamReader("interval.ini", System.Text.Encoding.GetEncoding("shift_jis"));
+
+                string message = sr1.ReadLine();
+                timerHashTag.Interval = int.Parse(message);
+
+                sr1.Close();
+            }
+            catch (Exception e)
+            {
+
+
+                // 読み込みに失敗したら　設定ファイルを作成
+                try
+                {
+                    StreamWriter sw1 = new StreamWriter("interval.ini", false, System.Text.Encoding.GetEncoding("shift_jis"));
+                    sw1.WriteLine("2500");
+                    sw1.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("File saving error. interval.ini");
+
+                }
+            }
+
         }
 
         private void timerTag_Tick(object sender, EventArgs e)
@@ -281,6 +322,112 @@ namespace SpeedyLikeSender
             counterSetter myCounterSetter = new counterSetter();
             myCounterSetter.myFM = this;
             myCounterSetter.ShowDialog(this);
+        }
+
+        int stage = 1;
+        private void tmAutomation_Tick(object sender, EventArgs e)
+        {
+            if (stage == 1)
+            {
+                //1ターン目 プロフィールをクリック 
+                System.Drawing.Point mp = this.PointToScreen(
+                        new System.Drawing.Point(714, 93));
+                System.Windows.Forms.Cursor.Position = mp;
+
+                System.Threading.Thread.Sleep(10);
+
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+
+
+            }
+            else if (stage == 2)
+            {
+                //2ターン目 最新の投稿済み画像をクリック 
+                System.Drawing.Point mp = this.PointToScreen(
+                        new System.Drawing.Point(130, 622));
+                System.Windows.Forms.Cursor.Position = mp;
+
+                System.Threading.Thread.Sleep(10);
+
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+            }
+            else if (stage == 3)
+            {
+                //3ターン目 投稿キャプションを下へスクロール 
+                System.Drawing.Point mp = this.PointToScreen(
+                        new System.Drawing.Point(720, 380));
+                System.Windows.Forms.Cursor.Position = mp;
+
+                for (int i = 0; i < 15; i++)
+                {
+                    System.Threading.Thread.Sleep(100);
+                    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                }
+
+            }
+            else if (stage == 4)
+            {
+                //4ターン目 投稿キャプションを下へスクロール 
+                System.Drawing.Point mp = this.PointToScreen(
+                        new System.Drawing.Point(720, 380));
+                System.Windows.Forms.Cursor.Position = mp;
+
+                for (int i = 0; i < 15; i++)
+                {
+                    System.Threading.Thread.Sleep(100);
+                    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                }
+
+            }
+            else if (stage == 5)
+            {
+                //5ターン目 タグをクリック
+                System.Drawing.Point mp = this.PointToScreen(
+                        new System.Drawing.Point(461, 325));
+                System.Windows.Forms.Cursor.Position = mp;
+
+                System.Threading.Thread.Sleep(100);
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+
+
+            }
+            else if (stage == 6)
+            {
+                //6ターン目 下へスクロール(人気投稿ではなく新着投稿へスクロール)
+                System.Drawing.Point mp = this.PointToScreen(
+                        new System.Drawing.Point(778,529));
+                System.Windows.Forms.Cursor.Position = mp;
+
+                for (int i = 0; i < 10; i++)
+                {
+                    System.Threading.Thread.Sleep(100);
+                    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                }
+
+
+            }
+            else if (stage == 7)
+            {
+                //右上のボタンをクリック。
+                System.Drawing.Point mp = this.PointToScreen(
+                        new System.Drawing.Point(607, 29));
+                System.Windows.Forms.Cursor.Position = mp;
+
+                System.Threading.Thread.Sleep(100);
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+
+
+            }
+
+            stage++;
+            
         }
     }
 }

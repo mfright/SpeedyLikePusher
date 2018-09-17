@@ -52,19 +52,19 @@
     <Compile Include="counterSetter.Designer.cs">
       <DependentUpon>counterSetter.cs</DependentUpon>
     </Compile>
-    <Compile Include="SpeedyLikePusher.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SpeedyLikePusher.Designer.cs">
-      <DependentUpon>SpeedyLikePusher.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="counterSetter.resx">
       <DependentUpon>counterSetter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SpeedyLikePusher.resx">
-      <DependentUpon>SpeedyLikePusher.cs</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
