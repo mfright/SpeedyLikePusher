@@ -339,7 +339,7 @@ namespace SpeedyLikeSender
                 mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
                 mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
 
-
+                tmAutomation.Interval = 5000;
             }
             else if (stage == 2)
             {

@@ -11,3 +11,10 @@ C:\Users\_\Documents\GitHub\SpeedyLikePusher_Tags\SpeedyPusher_tags\AutoLikePuss
 C:\Users\_\Documents\GitHub\SpeedyLikePusher\SpeedyPusher_tags\AutoLikePussher\bin\Debug\SpeedyLikeSender.exe.config
 C:\Users\_\Documents\GitHub\SpeedyLikePusher\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikeSender.exe
 C:\Users\_\Documents\GitHub\SpeedyLikePusher\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikeSender.pdb
+C:\Users\_\Documents\GitHub\SpeedyLikePusher\SpeedyPusher_tags\AutoLikePussher\bin\Debug\SpeedyLikeSender.exe
+C:\Users\_\Documents\GitHub\SpeedyLikePusher\SpeedyPusher_tags\AutoLikePussher\bin\Debug\SpeedyLikeSender.pdb
+C:\Users\_\Documents\GitHub\SpeedyLikePusher\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikeSender.csprojResolveAssemblyReference.cache
+C:\Users\_\Documents\GitHub\SpeedyLikePusher\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikeSender.counterSetter.resources
+C:\Users\_\Documents\GitHub\SpeedyLikePusher\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikeSender.frmMain.resources
+C:\Users\_\Documents\GitHub\SpeedyLikePusher\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikeSender.Properties.Resources.resources
+C:\Users\_\Documents\GitHub\SpeedyLikePusher\SpeedyPusher_tags\AutoLikePussher\obj\Debug\SpeedyLikeSender.csproj.GenerateResource.Cache

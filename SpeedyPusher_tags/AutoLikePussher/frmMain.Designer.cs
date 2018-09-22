@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.myBrowser = new System.Windows.Forms.WebBrowser();
             this.btn_startTag = new System.Windows.Forms.Button();
             this.timerHashTag = new System.Windows.Forms.Timer(this.components);
@@ -111,7 +112,7 @@
             // 
             // tmAutomation
             // 
-            this.tmAutomation.Interval = 5000;
+            this.tmAutomation.Interval = 30000;
             this.tmAutomation.Tick += new System.EventHandler(this.tmAutomation_Tick);
             // 
             // frmMain
@@ -126,6 +127,7 @@
             this.Controls.Add(this.btn_startTag);
             this.Controls.Add(this.myBrowser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
