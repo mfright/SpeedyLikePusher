@@ -14,7 +14,7 @@ B. Photos thumbnail page of a hash-tag.
 
 このソフトウェアは、Instagramのタイムラインやタグの写真一覧画面にて、
 自動でダブルクリックしていくことで「いいね」送信していくものです。
-「いいね」を押して回るのが面倒な時、１時間弱ほどで制限手前まで「いいね」送信できます。
+「いいね」を押して回るのが面倒な時、１時間ほどで制限手前まで「いいね」送信できます。
 
 
 
@@ -49,7 +49,7 @@ See https://www.youtube.com/watch?v=H1UNhahx-Ew&feature=youtu.be .
 変更したい場合は、limitter.iniをテキストエディタで開き、
 数値を書き換えてからツールを起動しなおしてください。
 
-ハッシュタグ画像に「いいね」していくモードでは、デフォルトでは2500ミリ秒(=2.5秒)ごとに画像を切り替えています。
+ハッシュタグ画像に「いいね」していくモードでは、デフォルトでは7000ミリ秒(=7秒)ごとに画像を切り替えています。
 通信速度によってはもっと遅くしたほうが安定して動作したり、
 逆に早く動作させられることもあるので、
 このインターバルを変更したい場合は、
@@ -62,9 +62,9 @@ interval.iniを書き換えてからツールを起動しなおしてください。
 
 
 ■4.Other tools
-For Twitter, SpeedyFavoriter is released on the URL below.
-https://github.com/mfright/SpeedyFavoriter/releases
-Twitter用には、SpeedyFavoriterを提供しています。
+For Twitter, "AutoFav" is released on the URL below.
+https://github.com/mfright/SpeedyFavoriter2_forTwitter/releases
+Twitter用には、AutoFavというソフトを提供しています。
 上記URLで公開しています。
 
 

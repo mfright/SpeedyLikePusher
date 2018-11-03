@@ -128,7 +128,7 @@ namespace SpeedyLikeSender
                 try
                 {
                     StreamWriter sw1 = new StreamWriter("interval.ini", false, System.Text.Encoding.GetEncoding("shift_jis"));
-                    sw1.WriteLine("2500");
+                    sw1.WriteLine("7000");
                     sw1.Close();
 
                 }
@@ -222,11 +222,11 @@ namespace SpeedyLikeSender
             }
             else
             {
-                this.Text = "RUNNING...  Press ESC key to STOP";
+                this.Text = "RUNNING...  Press Pause/Break key to STOP";
                 btn_startTag.BackColor = Color.Yellow;
                 this.TopMost = true;
                 running_tag = true;
-                btn_startTag.Text = "Press ESC key to STOP.";
+                btn_startTag.Text = "Press Pause/Break key to STOP.";
 
                 // 頭へスクロール
                 //myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, countScroll * 400));
@@ -269,11 +269,11 @@ namespace SpeedyLikeSender
             }
             else
             {
-                this.Text = "RUNNING...  Press ESC key to STOP";   
+                this.Text = "RUNNING...  Press Pause key to STOP";   
                 btnStartTimeline.BackColor = Color.Yellow;
                 this.TopMost = true; 
                 running_timeline = true;
-                btnStartTimeline.Text = "Press ESC key to STOP.";
+                btnStartTimeline.Text = "Press Pause key to STOP.";
 
                 timerTimeline.Start();
             } 
