@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.myBrowser = new System.Windows.Forms.WebBrowser();
             this.btn_startTag = new System.Windows.Forms.Button();
             this.timerHashTag = new System.Windows.Forms.Timer(this.components);
             this.timerTimeline = new System.Windows.Forms.Timer(this.components);
@@ -39,16 +38,9 @@
             this.lblCounter = new System.Windows.Forms.Label();
             this.btnSetting = new System.Windows.Forms.Button();
             this.tmAutomation = new System.Windows.Forms.Timer(this.components);
+            this.myBrowser = new Microsoft.Toolkit.Forms.UI.Controls.WebView();
+            ((System.ComponentModel.ISupportInitialize)(this.myBrowser)).BeginInit();
             this.SuspendLayout();
-            // 
-            // myBrowser
-            // 
-            this.myBrowser.Location = new System.Drawing.Point(0, 54);
-            this.myBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.myBrowser.Name = "myBrowser";
-            this.myBrowser.Size = new System.Drawing.Size(785, 604);
-            this.myBrowser.TabIndex = 0;
-            this.myBrowser.Url = new System.Uri("https://instagram.com", System.UriKind.Absolute);
             // 
             // btn_startTag
             // 
@@ -115,17 +107,25 @@
             this.tmAutomation.Interval = 30000;
             this.tmAutomation.Tick += new System.EventHandler(this.tmAutomation_Tick);
             // 
+            // myBrowser
+            // 
+            this.myBrowser.Location = new System.Drawing.Point(2, 56);
+            this.myBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.myBrowser.Name = "myBrowser";
+            this.myBrowser.Size = new System.Drawing.Size(783, 602);
+            this.myBrowser.TabIndex = 6;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 658);
+            this.Controls.Add(this.myBrowser);
             this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.lblCounter);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnStartTimeline);
             this.Controls.Add(this.btn_startTag);
-            this.Controls.Add(this.myBrowser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -134,14 +134,13 @@
             this.Text = "SpeedyLikeSender";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.myBrowser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.WebBrowser myBrowser;
         private System.Windows.Forms.Button btn_startTag;
         private System.Windows.Forms.Timer timerHashTag;
         private System.Windows.Forms.Timer timerTimeline;
@@ -150,6 +149,7 @@
         private System.Windows.Forms.Label lblCounter;
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Timer tmAutomation;
+        private Microsoft.Toolkit.Forms.UI.Controls.WebView myBrowser;
     }
 }
 

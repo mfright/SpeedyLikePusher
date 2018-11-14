@@ -98,7 +98,7 @@ namespace SpeedyLikeSender
                     sw1.Close();
 
                 }catch(Exception ex){
-                    MessageBox.Show("File saving error. limitter.ini");
+                    System.Windows.Forms.MessageBox.Show("File saving error. limitter.ini");
 
                 }
             }
@@ -134,7 +134,7 @@ namespace SpeedyLikeSender
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("File saving error. interval.ini");
+                    System.Windows.Forms.MessageBox.Show("File saving error. interval.ini");
 
                 }
             }
@@ -154,7 +154,7 @@ namespace SpeedyLikeSender
             
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-            System.Threading.Thread.Sleep(10);
+            System.Threading.Thread.Sleep(300);
 
             
 
@@ -197,7 +197,7 @@ namespace SpeedyLikeSender
             {
                 stop();
                 countDoubleClick++; //タイムラインだと２回警告を出してしまうのを防ぐため1+
-                MessageBox.Show("Maybe still sent LIKEs about near limit with using this tool.\r\nYour account will be locked by Instagram if you continue to sending today.","Attention!");
+                System.Windows.Forms.MessageBox.Show("Maybe still sent LIKEs about near limit with using this tool.\r\nYour account will be locked by Instagram if you continue to sending today.","Attention!");
                 
             }
         }
@@ -205,11 +205,13 @@ namespace SpeedyLikeSender
         private void frmMain_Load(object sender, EventArgs e)
         {
             // キー操作を拾うイベントハンドラを登録 (ESCを押したときに拾う)
-            Application.Idle += new EventHandler(Application_Idle);
+            System.Windows.Forms.Application.Idle += new EventHandler(Application_Idle);
 
             // webBrowserコンポーネントで使用するIEのバージョンを上げる。
-            regkey.SetValue(process_name, 11001, Microsoft.Win32.RegistryValueKind.DWord);
-            regkey.SetValue(process_dbg_name, 11001, Microsoft.Win32.RegistryValueKind.DWord);
+            //regkey.SetValue(process_name, 11001, Microsoft.Win32.RegistryValueKind.DWord);
+            //regkey.SetValue(process_dbg_name, 11001, Microsoft.Win32.RegistryValueKind.DWord);
+
+            myBrowser.Navigate("https://instagram.com");
         }
 
 
@@ -296,8 +298,8 @@ namespace SpeedyLikeSender
             
 
             // 下へスクロール
-            myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, countScroll * 400));
-            countScroll++;
+            //myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, countScroll * 400));
+            //countScroll++;
 
             
             // カウンター表示
@@ -307,9 +309,9 @@ namespace SpeedyLikeSender
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             // レジストリを元に戻す
-            regkey.DeleteValue(process_name);
-            regkey.DeleteValue(process_dbg_name);
-            regkey.Close();
+            //regkey.DeleteValue(process_name);
+            //regkey.DeleteValue(process_dbg_name);
+            //regkey.Close();
         }
 
         private void btnReload_Click(object sender, EventArgs e)
