@@ -23,17 +23,25 @@ B. Photos thumbnail page of a hash-tag.
 Install ".net Framework"4 or later and IE11 to your Windows PC.
 Run "SpeedyLikeSender.exe".
 Then log-in to your Instagram account.
-Access to your main-timeline page and press the left button or
-access to a thumbnails page about a hash-tag and press the right button.
+Access to your main-timeline page and press the [1] button. 
+Or access to a thumbnails page about a hash-tag and press [2] button.
 
 See https://www.youtube.com/watch?v=H1UNhahx-Ew&feature=youtu.be .
 
+
 パソコンに「.net Framework」とIE11をインストールします。
 「SpeedyLikeSender.exe」を起動し、あなたのインスタアカウントでログインします。
-タイムラインに一斉に「いいね」を付けたい場合は、タイムラインを表示させた状態で、左上のボタンを押します。
-止めたいときはESCキー(エスケープキー)を押してください。
 
-特定のハッシュタグの画像に一斉に「いいね」を付けたい場合は、ハッシュタグの画像一覧画面を表示してから、右上のボタンを押してください。
+①　タイムラインに一斉に「いいね」を付けたい場合は、
+タイムラインを表示させた状態で、[1]のボタンを押します。
+止めたいときはキーボードのPause/Breakキーを押してください。
+
+②　特定のハッシュタグの画像に一斉に「いいね」を付けたい場合は、
+ハッシュタグの画像一覧画面を表示してから、[2]のボタンを押してください。
+
+③　自動でいろんなハッシュタグの画像に次々と「いいね」したい場合は、
+keywords.iniの中身をそのタグに書き換えてから起動し、[3]ボタンを押してください。
+
 詳しくは上のYoutube動画をご覧ください。
 
 
@@ -56,7 +64,7 @@ See https://www.youtube.com/watch?v=H1UNhahx-Ew&feature=youtu.be .
 interval.iniを書き換えてからツールを起動しなおしてください。
 
 また、本ツールを起動時に「SpeedySender.exe -a」のように「-a」オプションを付けることで、
-あなたの最直近の投稿に含まれるハッシュタグ群に「いいね」試行させることができます。
+最初から[3]ボタンを押したのと同じ状態で起動できます。
 この処理には１分ほどかかります。
 
 
@@ -81,3 +89,4 @@ https://www.instagram.com/follow_each_other2018/
 
 Source code is stored on Github.(https://github.com/mfright/SpeedyLikePusher)
 ぜひ上記URLにアクセスしてください。
+http://www.ddhost.jp

@@ -37,8 +37,9 @@
             this.btnStartTimeline = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.lblCounter = new System.Windows.Forms.Label();
-            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnAutomation = new System.Windows.Forms.Button();
             this.tmAutomation = new System.Windows.Forms.Timer(this.components);
+            this.lblLimitter = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // myBrowser
@@ -52,11 +53,11 @@
             // 
             // btn_startTag
             // 
-            this.btn_startTag.Location = new System.Drawing.Point(445, 0);
+            this.btn_startTag.Location = new System.Drawing.Point(484, 0);
             this.btn_startTag.Name = "btn_startTag";
-            this.btn_startTag.Size = new System.Drawing.Size(340, 55);
+            this.btn_startTag.Size = new System.Drawing.Size(301, 55);
             this.btn_startTag.TabIndex = 1;
-            this.btn_startTag.Text = "Open photos page about a hash-tag.\r\nThen press here to START.";
+            this.btn_startTag.Text = "[2] Open photos page about a hash-tag.\r\nThen press here to START.";
             this.btn_startTag.UseVisualStyleBackColor = true;
             this.btn_startTag.Click += new System.EventHandler(this.btn_startTag_Click);
             // 
@@ -74,17 +75,17 @@
             // 
             this.btnStartTimeline.Location = new System.Drawing.Point(0, 0);
             this.btnStartTimeline.Name = "btnStartTimeline";
-            this.btnStartTimeline.Size = new System.Drawing.Size(367, 55);
+            this.btnStartTimeline.Size = new System.Drawing.Size(326, 55);
             this.btnStartTimeline.TabIndex = 2;
-            this.btnStartTimeline.Text = "Open main timeline page.\r\nThen press here to START.";
+            this.btnStartTimeline.Text = "[1] Open timeline page \r\nand press here to START.";
             this.btnStartTimeline.UseVisualStyleBackColor = true;
             this.btnStartTimeline.Click += new System.EventHandler(this.btnStartTimeline_Click);
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(373, 28);
+            this.btnReload.Location = new System.Drawing.Point(331, 30);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(66, 27);
+            this.btnReload.Size = new System.Drawing.Size(49, 23);
             this.btnReload.TabIndex = 3;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -93,34 +94,43 @@
             // lblCounter
             // 
             this.lblCounter.AutoSize = true;
-            this.lblCounter.Location = new System.Drawing.Point(373, 7);
+            this.lblCounter.Location = new System.Drawing.Point(354, 7);
             this.lblCounter.Name = "lblCounter";
             this.lblCounter.Size = new System.Drawing.Size(11, 12);
             this.lblCounter.TabIndex = 4;
             this.lblCounter.Text = "0";
             // 
-            // btnSetting
+            // btnAutomation
             // 
-            this.btnSetting.Location = new System.Drawing.Point(0, 635);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(25, 23);
-            this.btnSetting.TabIndex = 5;
-            this.btnSetting.Text = "*";
-            this.btnSetting.UseVisualStyleBackColor = true;
-            this.btnSetting.Visible = false;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            this.btnAutomation.Location = new System.Drawing.Point(386, 30);
+            this.btnAutomation.Name = "btnAutomation";
+            this.btnAutomation.Size = new System.Drawing.Size(92, 23);
+            this.btnAutomation.TabIndex = 5;
+            this.btnAutomation.Text = "[3] Automation";
+            this.btnAutomation.UseVisualStyleBackColor = true;
+            this.btnAutomation.Click += new System.EventHandler(this.btnAutomation_Click);
             // 
             // tmAutomation
             // 
-            this.tmAutomation.Interval = 30000;
+            this.tmAutomation.Interval = 5000;
             this.tmAutomation.Tick += new System.EventHandler(this.tmAutomation_Tick);
+            // 
+            // lblLimitter
+            // 
+            this.lblLimitter.AutoSize = true;
+            this.lblLimitter.Location = new System.Drawing.Point(415, 8);
+            this.lblLimitter.Name = "lblLimitter";
+            this.lblLimitter.Size = new System.Drawing.Size(11, 12);
+            this.lblLimitter.TabIndex = 6;
+            this.lblLimitter.Text = "/";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 658);
-            this.Controls.Add(this.btnSetting);
+            this.Controls.Add(this.lblLimitter);
+            this.Controls.Add(this.btnAutomation);
             this.Controls.Add(this.lblCounter);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnStartTimeline);
@@ -148,8 +158,9 @@
         private System.Windows.Forms.Button btnStartTimeline;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Label lblCounter;
-        private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Button btnAutomation;
         private System.Windows.Forms.Timer tmAutomation;
+        private System.Windows.Forms.Label lblLimitter;
     }
 }
 
