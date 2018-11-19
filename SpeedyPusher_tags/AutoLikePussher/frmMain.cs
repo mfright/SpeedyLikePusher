@@ -268,10 +268,6 @@ namespace SpeedyLikeSender
                 // ESCかPause/Breakキー
                 stop();
 
-            }else if (Keyboard.IsKeyDown(Key.A))
-            {
-                // Aキー
-                btnAutomation_Click(null, null);
             }
         }
 
