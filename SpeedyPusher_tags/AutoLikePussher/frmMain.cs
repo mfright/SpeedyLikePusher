@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using System.Threading;
 
 namespace SpeedyLikeSender
 {
@@ -19,11 +20,13 @@ namespace SpeedyLikeSender
 
     public partial class frmMain : Form
     {
+        /*
         // ブラウザコンポーネントのバージョンを変更するレジストリ制御用
         Microsoft.Win32.RegistryKey regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(FEATURE_BROWSER_EMULATION);
         const string FEATURE_BROWSER_EMULATION = @"Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION";
         string process_name = System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe";
         string process_dbg_name = System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".vshost.exe";
+        */
 
         //マウス操作のためのDLLをimport
         [DllImport("USER32.dll", CallingConvention = CallingConvention.StdCall)]
@@ -66,11 +69,12 @@ namespace SpeedyLikeSender
             //ハッシュタグいいね送信インターバル設定ファイル読込
             loadInterval();
 
+            /*
             if (automationMode)
             {
                 btnAutomation.BackColor = Color.Yellow;
                 tmAutomation.Start();
-            }
+            }*/
         }
 
         /// <summary>
@@ -143,44 +147,69 @@ namespace SpeedyLikeSender
 
         }
 
+        
+
         Boolean flagSingleClicked = false;
         private void timerTag_Tick(object sender, EventArgs e)
         {
             this.TopMost = true;
-
+            
+            
             // 数回に一回、画像読み込みを試行する
-            if (countDoubleClick % 10 == 0 && !flagSingleClicked)
+            if (/* !flagSingleClicked && countDoubleClick % 10 == 0 */ false)
             {
                 // 下へスクロール
                 myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, 600000));
-                System.Threading.Thread.Sleep(1000);
 
-                // 画像をクリック
+
+                // 画像の上にカーソルを移動
                 mp = this.PointToScreen(
-                    new System.Drawing.Point(100, 400));
+                    new System.Drawing.Point(280, 240));
                 System.Windows.Forms.Cursor.Position = mp;
 
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                
 
+                // 数秒待ってからクリックするスレッドをスタート
+                Thread thread = new Thread(new ThreadStart(lateClick));
+                thread.Start();
+
+                // 画像クリック済みフラグをtrue
                 flagSingleClicked = true;
 
             }
             else
             {
+                // 下へスクロール
+                //myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, 60000));
+
+
                 //表示された画像の上にカーソルを動かしダブルクリック
                 mp = this.PointToScreen(
-                        new System.Drawing.Point(259, 430));
+                        //new System.Drawing.Point(259, 240));
+                        new System.Drawing.Point(280, 240));
+
                 System.Windows.Forms.Cursor.Position = mp;
 
+                /*
                 mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
                 mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                System.Threading.Thread.Sleep(100);
+                Thread.Sleep(100);
+                */
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+
+                Thread.Sleep(1);
 
                 mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
                 mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                System.Threading.Thread.Sleep(300);
 
+                Thread.Sleep(1);
+
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+
+                //Thread thread = new Thread(new ThreadStart(quickClick));
+                //thread.Start();
 
 
                 //次画像ボタンの上にカーソルを動かしクリック
@@ -188,16 +217,42 @@ namespace SpeedyLikeSender
                         new System.Drawing.Point(750, 350));
                 System.Windows.Forms.Cursor.Position = mp;
 
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                // 数秒待ってからクリックするスレッドをスタート
+                Thread thread2 = new Thread(new ThreadStart(lateClick));
+                thread2.Start();
 
+                // 下へスクロール
+                myBrowser.Document.Window.ScrollTo(new System.Drawing.Point(0, 60000));
 
                 //カウンターを増加
                 countIncrement(false);
 
 
+                // 画像定期クリック済みフラグをfalse
                 flagSingleClicked = false;
+                
             }
+            
+        }
+
+        private void quickClick()
+        {
+
+            // 画像をクリック
+
+            Thread.Sleep(1);
+
+            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+        }
+
+        private void lateClick()
+        {
+            Thread.Sleep(1000);           
+
+            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+
             
         }
 
@@ -338,13 +393,14 @@ namespace SpeedyLikeSender
             }
         }
 
+        /*
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             // レジストリを元に戻す
             regkey.DeleteValue(process_name);
             regkey.DeleteValue(process_dbg_name);
             regkey.Close();
-        }
+        }*/
 
         private void btnReload_Click(object sender, EventArgs e)
         {
@@ -352,7 +408,7 @@ namespace SpeedyLikeSender
         }
 
 
-
+        /*
         // オートメーションボタン
         private void btnAutomation_Click(object sender, EventArgs e)
         {
@@ -373,7 +429,7 @@ namespace SpeedyLikeSender
                 myBrowser.Navigate("https://www.instagram.com/explore/tags/" + keywords[0]);
             }
         }
-
+        
 
         //オートメーションモードのときは、このタイマーが走る
         int stage = 1;  //状態
@@ -462,114 +518,17 @@ namespace SpeedyLikeSender
 
                 stage -= 2;
             }
+            
 
 
 
-
-            /*
-            if (stage == 1)
-            {
-                //1ターン目 プロフィールをクリック 
-                System.Drawing.Point mp = this.PointToScreen(
-                        new System.Drawing.Point(714, 93));
-                System.Windows.Forms.Cursor.Position = mp;
-
-                System.Threading.Thread.Sleep(10);
-
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-
-                tmAutomation.Interval = 5000;
-            }
-            else if (stage == 2)
-            {
-                //2ターン目 最新の投稿済み画像をクリック 
-                System.Drawing.Point mp = this.PointToScreen(
-                        new System.Drawing.Point(130, 622));
-                System.Windows.Forms.Cursor.Position = mp;
-
-                System.Threading.Thread.Sleep(10);
-
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-            }
-            else if (stage == 3)
-            {
-                //3ターン目 投稿キャプションを下へスクロール 
-                System.Drawing.Point mp = this.PointToScreen(
-                        new System.Drawing.Point(720, 380));
-                System.Windows.Forms.Cursor.Position = mp;
-
-                for (int i = 0; i < 15; i++)
-                {
-                    System.Threading.Thread.Sleep(100);
-                    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                }
-
-            }
-            else if (stage == 4)
-            {
-                //4ターン目 投稿キャプションを下へスクロール 
-                System.Drawing.Point mp = this.PointToScreen(
-                        new System.Drawing.Point(720, 380));
-                System.Windows.Forms.Cursor.Position = mp;
-
-                for (int i = 0; i < 15; i++)
-                {
-                    System.Threading.Thread.Sleep(100);
-                    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                }
-
-            }
-            else if (stage == 5)
-            {
-                //5ターン目 タグをクリック
-                System.Drawing.Point mp = this.PointToScreen(
-                        new System.Drawing.Point(461, 325));
-                System.Windows.Forms.Cursor.Position = mp;
-
-                System.Threading.Thread.Sleep(100);
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-
-
-            }
-            else if (stage == 6)
-            {
-                //6ターン目 下へスクロール(人気投稿ではなく新着投稿へスクロール)
-                System.Drawing.Point mp = this.PointToScreen(
-                        new System.Drawing.Point(778,529));
-                System.Windows.Forms.Cursor.Position = mp;
-
-                for (int i = 0; i < 10; i++)
-                {
-                    System.Threading.Thread.Sleep(100);
-                    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                }
-
-
-            }
-            else if (stage == 7)
-            {
-                //右上のボタンをクリック。
-                System.Drawing.Point mp = this.PointToScreen(
-                        new System.Drawing.Point(607, 29));
-                System.Windows.Forms.Cursor.Position = mp;
-
-                System.Threading.Thread.Sleep(100);
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-
-
-            }
+            
 
             stage++;
-            */
+            
 
         }
+        
 
         /// <summary>
         /// キーワードの設定ファイルを読み込む
@@ -626,6 +585,7 @@ namespace SpeedyLikeSender
             }
 
         }
+        */
 
 
     }

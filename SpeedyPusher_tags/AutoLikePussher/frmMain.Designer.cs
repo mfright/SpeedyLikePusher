@@ -37,7 +37,6 @@
             this.btnStartTimeline = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.lblCounter = new System.Windows.Forms.Label();
-            this.btnAutomation = new System.Windows.Forms.Button();
             this.tmAutomation = new System.Windows.Forms.Timer(this.components);
             this.lblLimitter = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -85,7 +84,7 @@
             // 
             this.btnReload.Location = new System.Drawing.Point(331, 30);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(49, 23);
+            this.btnReload.Size = new System.Drawing.Size(147, 23);
             this.btnReload.TabIndex = 3;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -99,21 +98,6 @@
             this.lblCounter.Size = new System.Drawing.Size(11, 12);
             this.lblCounter.TabIndex = 4;
             this.lblCounter.Text = "0";
-            // 
-            // btnAutomation
-            // 
-            this.btnAutomation.Location = new System.Drawing.Point(386, 30);
-            this.btnAutomation.Name = "btnAutomation";
-            this.btnAutomation.Size = new System.Drawing.Size(92, 23);
-            this.btnAutomation.TabIndex = 5;
-            this.btnAutomation.Text = "[3] Automation";
-            this.btnAutomation.UseVisualStyleBackColor = true;
-            this.btnAutomation.Click += new System.EventHandler(this.btnAutomation_Click);
-            // 
-            // tmAutomation
-            // 
-            this.tmAutomation.Interval = 5000;
-            this.tmAutomation.Tick += new System.EventHandler(this.tmAutomation_Tick);
             // 
             // lblLimitter
             // 
@@ -130,7 +114,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 658);
             this.Controls.Add(this.lblLimitter);
-            this.Controls.Add(this.btnAutomation);
             this.Controls.Add(this.lblCounter);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnStartTimeline);
@@ -142,7 +125,6 @@
             this.MinimizeBox = false;
             this.Name = "frmMain";
             this.Text = "SpeedyLikeSender";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,7 +140,6 @@
         private System.Windows.Forms.Button btnStartTimeline;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Label lblCounter;
-        private System.Windows.Forms.Button btnAutomation;
         private System.Windows.Forms.Timer tmAutomation;
         private System.Windows.Forms.Label lblLimitter;
     }

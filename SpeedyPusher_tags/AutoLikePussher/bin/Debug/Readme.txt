@@ -8,13 +8,16 @@
 ■1.ABSTRACT
 
 Are you tired to send "LIKE"s on your timeline / hash-tagged photos in Instagram?
-This software is to do double-click each photos for "LIKE".
+This software is to do double-click each photos for "LIKE"s.
 A. Your main time line.
-B. Photos thumbnail page of a hash-tag.
+B. Photos thumbnail page of a hash-tag. (Your followers will increase.)
+
 
 このソフトウェアは、Instagramのタイムラインやタグの写真一覧画面にて、
 自動でダブルクリックしていくことで「いいね」送信していくものです。
-「いいね」を押して回るのが面倒な時、１時間ほどで制限手前まで「いいね」送信できます。
+「いいね」を押して回るのが面倒な時、２時間ほどで制限手前まで「いいね」送信できます。
+A.タイムラインの写真に片っ端から「いいね」する。
+B.ハッシュタグの写真一覧画面で片っ端から「いいね」する(フォロワーが増えます)
 
 
 
@@ -63,9 +66,6 @@ keywords.iniの中身をそのタグに書き換えてから起動し、[3]ボタンを押してください。
 このインターバルを変更したい場合は、
 interval.iniを書き換えてからツールを起動しなおしてください。
 
-また、本ツールを起動時に「SpeedySender.exe -a」のように「-a」オプションを付けることで、
-最初から[3]ボタンを押したのと同じ状態で起動できます。
-この処理には１分ほどかかります。
 
 
 
